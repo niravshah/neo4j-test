@@ -1,3 +1,8 @@
+config:
+  container_name: config
+  image: kbastani/twitter-configuration:latest
+  ports:
+   - "8888:8888"
 discovery:
   container_name: discovery
   image: kbastani/twitter-discovery:latest
@@ -5,11 +10,6 @@ discovery:
    - "8761:8761"
   links:
    - config
-config:
-  container_name: config
-  image: kbastani/twitter-configuration:latest
-  ports:
-   - "8888:8888"
 hdfs:
   container_name: hdfs
   image: sequenceiq/hadoop-docker:2.4.1
@@ -62,7 +62,7 @@ twitter-rank-crawler:
 scope:
   container_name: weave-scope
   volumes:
-    - "/var/run/:/var/run:rw"
+    - "/Users/shahn2/weave:/var/run:rw"
   command:
     - "--probe.docker"
     - "true"
